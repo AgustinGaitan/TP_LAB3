@@ -88,7 +88,7 @@ var ObtenerSueldoMaximo : Function = (valorTurno : string) : number =>
 
 var AdministrarValidaciones : Function = () =>
 {
-    if(//!ValidarCamposVacios("txtDni") ||
+    if(//!ValidarCamposVacios("txtDni") ||  YA LOS VALIDA LAS FUNCIONES POSTERIORES
        !ValidarCamposVacios("txtApellido") ||
        !ValidarCamposVacios("txtNombre")
        //!ValidarCamposVacios("txtLegajo") ||
