@@ -1,5 +1,6 @@
 var ValidarCamposVacios = function (id) {
     var elementoObtenido = document.getElementById(id).value;
+    elementoObtenido = elementoObtenido.replace(/ /g, "");
     if (elementoObtenido != "") {
         return true;
     }

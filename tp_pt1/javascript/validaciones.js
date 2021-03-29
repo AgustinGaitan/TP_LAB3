@@ -1,6 +1,7 @@
 "use strict";
 var ValidarCamposVacios = function (id) {
     var elementoObtenido = document.getElementById(id).value;
+    elementoObtenido = elementoObtenido.replace(/ /g, "");
     if (elementoObtenido != "") {
         return true;
     }
@@ -59,7 +60,7 @@ var ObtenerSueldoMaximo = function (valorTurno) {
     }
 };
 var AdministrarValidaciones = function () {
-    if ( //!ValidarCamposVacios("txtDni") ||
+    if ( //!ValidarCamposVacios("txtDni") ||  YA LOS VALIDA LAS FUNCIONES POSTERIORES
     !ValidarCamposVacios("txtApellido") ||
         !ValidarCamposVacios("txtNombre")
     //!ValidarCamposVacios("txtLegajo") ||

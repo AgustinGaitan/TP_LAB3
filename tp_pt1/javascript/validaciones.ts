@@ -1,6 +1,7 @@
 var ValidarCamposVacios : Function = (id : string) : boolean =>
 {
-    const elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
+    let elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
+    elementoObtenido = elementoObtenido.replace(/ /g,"");
 
     if(elementoObtenido != "")
     {
