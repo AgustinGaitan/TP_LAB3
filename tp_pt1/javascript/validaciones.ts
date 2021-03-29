@@ -1,4 +1,5 @@
-var ValidarCamposVacios : Function = (id : string) : boolean =>
+
+export var ValidarCamposVacios : Function = (id : string) : boolean =>
 {
     let elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
     elementoObtenido = elementoObtenido.replace(/ /g,"");
@@ -16,7 +17,7 @@ var ValidarCamposVacios : Function = (id : string) : boolean =>
 }
 
 
-var ValidarRangoNumerico : Function = (valorASerValidado : number , min : number, max: number) : boolean =>
+export var ValidarRangoNumerico : Function = (valorASerValidado : number , min : number, max: number) : boolean =>
 {
     if(valorASerValidado >= min && valorASerValidado <= max)
     {
@@ -28,7 +29,7 @@ var ValidarRangoNumerico : Function = (valorASerValidado : number , min : number
     }
 }
 
-var ValidarCombo : Function = (id : string , valorIncorrecto : string) : boolean =>
+export var ValidarCombo : Function = (id : string , valorIncorrecto : string) : boolean =>
 {
     const elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
 
@@ -43,7 +44,7 @@ var ValidarCombo : Function = (id : string , valorIncorrecto : string) : boolean
 
 }
 
-var ObtenerTurnoSeleccionado : Function = () : string =>
+export var ObtenerTurnoSeleccionado : Function = () : string =>
 {
     const obtenido : NodeListOf<HTMLInputElement> = document.querySelectorAll('input[name="rdoTurno"]'); //Selecciona todos los input que tengan nombre "rdoTurno"
     var valor : number = 0;
@@ -69,7 +70,7 @@ var ObtenerTurnoSeleccionado : Function = () : string =>
    }
 }
 
-var ObtenerSueldoMaximo : Function = (valorTurno : string) : number => 
+export var ObtenerSueldoMaximo : Function = (valorTurno : string) : number => 
 {
    switch(valorTurno)
    {
@@ -84,45 +85,5 @@ var ObtenerSueldoMaximo : Function = (valorTurno : string) : number =>
             break;
    }
 
-}
-
-
-var AdministrarValidaciones : Function = () =>
-{
-    if(//!ValidarCamposVacios("txtDni") ||  YA LOS VALIDA LAS FUNCIONES POSTERIORES
-       !ValidarCamposVacios("txtApellido") ||
-       !ValidarCamposVacios("txtNombre")
-       //!ValidarCamposVacios("txtLegajo") ||
-       //!ValidarCamposVacios("txtSueldo"))
-    )
-    {
-        alert("Un campo o varios están vacios");
-    }
-
-    let dniObtenido : string = (<HTMLInputElement> document.getElementById("txtDni")).value;
-    let legajoObtenido : string = (<HTMLInputElement> document.getElementById("txtLegajo")).value;
-    let sueldoObtenido : string = (<HTMLInputElement> document.getElementById("txtSueldo")).value;
-    let sueldoMax : number = ObtenerSueldoMaximo(ObtenerTurnoSeleccionado());
-    
-    if(!ValidarRangoNumerico(parseInt(dniObtenido), 1000000, 55000000 ))
-    {
-        alert("Dni incorrecto.");
-    }
-
-    if(!ValidarRangoNumerico(parseInt(legajoObtenido),100,150))
-    {
-        alert("Legajo incorrecto.");
-    }
-
-    if(!ValidarRangoNumerico(parseInt(sueldoObtenido),8000,sueldoMax))
-    {
-        alert("Sueldo incorrecto.");
-    }
-
-    if(!ValidarCombo("cboSexo","---"))
-    {
-        alert("Seleccione sexo");
-    }
-   
 }
 

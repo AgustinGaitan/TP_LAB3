@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ObtenerSueldoMaximo = exports.ObtenerTurnoSeleccionado = exports.ValidarCombo = exports.ValidarRangoNumerico = exports.ValidarCamposVacios = void 0;
 var ValidarCamposVacios = function (id) {
     var elementoObtenido = document.getElementById(id).value;
     elementoObtenido = elementoObtenido.replace(/ /g, "");
@@ -9,6 +11,7 @@ var ValidarCamposVacios = function (id) {
         return false;
     }
 };
+exports.ValidarCamposVacios = ValidarCamposVacios;
 var ValidarRangoNumerico = function (valorASerValidado, min, max) {
     if (valorASerValidado >= min && valorASerValidado <= max) {
         return true;
@@ -17,6 +20,7 @@ var ValidarRangoNumerico = function (valorASerValidado, min, max) {
         return false;
     }
 };
+exports.ValidarRangoNumerico = ValidarRangoNumerico;
 var ValidarCombo = function (id, valorIncorrecto) {
     var elementoObtenido = document.getElementById(id).value;
     if (elementoObtenido == valorIncorrecto) {
@@ -26,6 +30,7 @@ var ValidarCombo = function (id, valorIncorrecto) {
         return true;
     }
 };
+exports.ValidarCombo = ValidarCombo;
 var ObtenerTurnoSeleccionado = function () {
     var obtenido = document.querySelectorAll('input[name="rdoTurno"]'); //Selecciona todos los input que tengan nombre "rdoTurno"
     var valor = 0;
@@ -46,6 +51,7 @@ var ObtenerTurnoSeleccionado = function () {
             break;
     }
 };
+exports.ObtenerTurnoSeleccionado = ObtenerTurnoSeleccionado;
 var ObtenerSueldoMaximo = function (valorTurno) {
     switch (valorTurno) {
         case "Mañana":
@@ -59,30 +65,5 @@ var ObtenerSueldoMaximo = function (valorTurno) {
             break;
     }
 };
-var AdministrarValidaciones = function () {
-    if ( //!ValidarCamposVacios("txtDni") ||  YA LOS VALIDA LAS FUNCIONES POSTERIORES
-    !ValidarCamposVacios("txtApellido") ||
-        !ValidarCamposVacios("txtNombre")
-    //!ValidarCamposVacios("txtLegajo") ||
-    //!ValidarCamposVacios("txtSueldo"))
-    ) {
-        alert("Un campo o varios están vacios");
-    }
-    var dniObtenido = document.getElementById("txtDni").value;
-    var legajoObtenido = document.getElementById("txtLegajo").value;
-    var sueldoObtenido = document.getElementById("txtSueldo").value;
-    var sueldoMax = ObtenerSueldoMaximo(ObtenerTurnoSeleccionado());
-    if (!ValidarRangoNumerico(parseInt(dniObtenido), 1000000, 55000000)) {
-        alert("Dni incorrecto.");
-    }
-    if (!ValidarRangoNumerico(parseInt(legajoObtenido), 100, 150)) {
-        alert("Legajo incorrecto.");
-    }
-    if (!ValidarRangoNumerico(parseInt(sueldoObtenido), 8000, sueldoMax)) {
-        alert("Sueldo incorrecto.");
-    }
-    if (!ValidarCombo("cboSexo", "---")) {
-        alert("Seleccione sexo");
-    }
-};
+exports.ObtenerSueldoMaximo = ObtenerSueldoMaximo;
 //# sourceMappingURL=validaciones.js.map
