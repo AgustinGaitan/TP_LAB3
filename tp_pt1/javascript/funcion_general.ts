@@ -1,5 +1,5 @@
-import { ValidarRangoNumerico, ValidarCamposVacios, ValidarCombo,
-        ObtenerSueldoMaximo, ObtenerTurnoSeleccionado} from "./validaciones" ;
+/*import { ValidarRangoNumerico, ValidarCamposVacios, ValidarCombo,
+        ObtenerSueldoMaximo, ObtenerTurnoSeleccionado} from "./validaciones" ;*/
 
 
 var AdministrarValidaciones : Function = () =>

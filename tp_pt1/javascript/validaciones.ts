@@ -1,5 +1,5 @@
 
-export var ValidarCamposVacios : Function = (id : string) : boolean =>
+ var ValidarCamposVacios : Function = (id : string) : boolean =>
 {
     let elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
     elementoObtenido = elementoObtenido.replace(/ /g,"");
@@ -16,8 +16,7 @@ export var ValidarCamposVacios : Function = (id : string) : boolean =>
 
 }
 
-
-export var ValidarRangoNumerico : Function = (valorASerValidado : number , min : number, max: number) : boolean =>
+ var ValidarRangoNumerico : Function = (valorASerValidado : number , min : number, max: number) : boolean =>
 {
     if(valorASerValidado >= min && valorASerValidado <= max)
     {
@@ -28,8 +27,7 @@ export var ValidarRangoNumerico : Function = (valorASerValidado : number , min :
         return false;
     }
 }
-
-export var ValidarCombo : Function = (id : string , valorIncorrecto : string) : boolean =>
+ var ValidarCombo : Function = (id : string , valorIncorrecto : string) : boolean =>
 {
     const elementoObtenido :string =  (<HTMLInputElement> document.getElementById(id)).value;
 
@@ -43,8 +41,7 @@ export var ValidarCombo : Function = (id : string , valorIncorrecto : string) : 
     }
 
 }
-
-export var ObtenerTurnoSeleccionado : Function = () : string =>
+ var ObtenerTurnoSeleccionado : Function = () : string =>
 {
     const obtenido : NodeListOf<HTMLInputElement> = document.querySelectorAll('input[name="rdoTurno"]'); //Selecciona todos los input que tengan nombre "rdoTurno"
     var valor : number = 0;
@@ -69,8 +66,7 @@ export var ObtenerTurnoSeleccionado : Function = () : string =>
             break;
    }
 }
-
-export var ObtenerSueldoMaximo : Function = (valorTurno : string) : number => 
+ var ObtenerSueldoMaximo : Function = (valorTurno : string) : number => 
 {
    switch(valorTurno)
    {
